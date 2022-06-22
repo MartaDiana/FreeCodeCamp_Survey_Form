@@ -4,71 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Bigbang Survey Form</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Marta Diana</title>
   </head>
   <body>
-    <h1 id="title">Bigbang Survey Form</h1>
-    <p id="description">If you are VIP, please fill the form, thank you.</p>
-    <div>
-      <form id="survey-form">
-        <label for="name" id="name-label">
-          Name
-          <input type="text" id="name" placeholder="Enter Your name" required />
-        </label>
-        <label for="email" id="email-label">
-          Email
-          <input type="email" id="email" placeholder="Enter Your email" required />
-        </label>
-        <label for="number" id="number-label">
-          Age
-          <input type="number" id="number" placeholder="How old are you" min="15" max="40" />
-        </label>
+    <!-- tag pembungkus vue -->
+    <div id="app">
+      <!-- header -->
+      <div class="header">
+        <h1 id="title">Marta Diana's Blog</h1>
+        <p id="description">A Simple Blog Created by Marta Diana</p>
+      </div>
+      <!-- end of header -->
 
-        <label for="dropdown" id="dropdown-label">
-          How do you know BigBang
-          <select id="dropdown">
-            <option>Test 1</option>
-            <option>Test 2</option>
-            <option>Test 3</option>
-          </select>
-        </label>
-
-        <label for="member" id="member-label">
-          Who is your favorite Member?
+      <!-- main content -->
+      <div class="container">
+        <!-- main content -->
+        <div class="main-content">
+          <h1>BLOG POST.</h1>
           <br />
-        </label>
-        <input type="radio" name="member" value="1" checked /> G-Dragon <br />
-        <input type="radio" name="member" value="2" /> Taeyang <br />
-        <input type="radio" name="member" value="3" /> Daesung <br />
-        <input type="radio" name="member" value="4" /> TOP <br />
-        <input type="radio" name="member" value="5" /> Seungri <br />
-        <br />
+          <div class="post-content" v-for="posting in post">
+            <h2>{{posting.title}}</h2>
+            <hr />
+            <p>{{posting.body}}</p>
+          </div>
+        </div>
+        <!-- end of main content -->
 
-        <label for="albums" id="albums-label">
-          Please choose your favorite albums(s)?
+        <!-- comment section -->
+        <div class="comment-section">
+          <h1>COMMENTS.</h1>
           <br />
-          <br />
-          <input type="checkbox" value="bigbang-vol-1" " /> Bigbang Vol.1 <br />
-          <input type="checkbox" value="remember" /> Remember <br />
-          <input type="checkbox" value="made" /> MADE <br />
-          <input type="checkbox" value="alive" /> Alive <br />
-          <input type="checkbox" value="for-ther-world" /> For the World <br />
-          <input type="checkbox" value="withu" /> With U <br />
-          <input type="checkbox" value="number1" /> Number 1 <br />
-          <input type="checkbox" value="bigbang2" /> Big Bang 2 <br />
-          <input type="checkbox" value="Madeseries" /> Made Series <br />
-          <input type="checkbox" value="Other" /> Other <br />
-        </label>
+          <div class="comment" v-for="comment in comments">
+            <h3>A Comment from <span>{{comment.name}}</span></h3>
+            <p class="email">{{comment.email}}</p>
+            <p>{{comment.body}}</p>
+            <div class="line"></div>
+          </div>
+        </div>
+        <!-- end of comment section -->
 
-        <label for="comment" id="comment-label">
-          Any comment or suggestions?
-          <textarea id="comment" rows="13" placeholder="Your comment or suggestions"></textarea>
-        </label>
-
-        <button id="submit" type="submit">Submit</button>
-      </form>
+        <!-- Go To Page 2 for CRUD -->
+        <div class="pagetwo">
+          <a href="page2.html">Create Something New >> </a>
+        </div>
+        <!-- end of Go to Page 2 -->
+      </div>
     </div>
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <!-- tag pembungkus vue -->
+
+    <!-- vue js -->
+    <!-- Include file axios js -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
